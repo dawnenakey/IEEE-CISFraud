@@ -8,40 +8,40 @@ This project applies Genetic Algorithms (GA) for feature selection and Stochasti
 
 📂 Repository Structure
 
-📦 ieee-fraud-detection-ga-sgd
- ┣ 📂 data
- ┃ ┣ 📜 train_transaction.csv   (Not included, download from Kaggle)
- ┃ ┣ 📜 train_identity.csv      (Optional, for additional features)
- ┃ ┗ 📜 processed_data.csv      (Processed dataset for feature selection & training)
- ┣ 📂 notebooks
- ┃ ┣ 📜 01_data_preprocessing.ipynb
- ┃ ┣ 📜 02_feature_selection_ga.ipynb
- ┃ ┣ 📜 03_fraud_classification_sgd.ipynb
- ┃ ┗ 📜 04_model_tuning.ipynb
- ┣ 📂 src
- ┃ ┣ 📜 data_preprocessing.py
- ┃ ┣ 📜 genetic_algorithm_feature_selection.py
- ┃ ┣ 📜 train_sgd_classifier.py
- ┃ ┣ 📜 evaluate_model.py
- ┃ ┗ 📜 hyperparameter_tuning.py
- ┣ 📜 .gitignore
- ┣ 📜 README.md
- ┣ 📜 requirements.txt
- ┗ 📜 LICENSE
+ieee-fraud-detection-ga-sgd
+ 📂 data
+     📜 train_transaction.csv   (Not included, download from Kaggle)
+     📜 train_identity.csv      (Optional, for additional features)
+     📜 processed_data.csv      (Processed dataset for feature selection & training)
+ 📂 notebooks
+     📜 01_data_preprocessing.ipynb
+     📜 02_feature_selection_ga.ipynb
+     📜 03_fraud_classification_sgd.ipynb
+     📜 04_model_tuning.ipynb
+ 📂 src
+     📜 data_preprocessing.py
+     📜 genetic_algorithm_feature_selection.py
+     📜 train_sgd_classifier.py
+     📜 evaluate_model.py
+     📜 hyperparameter_tuning.py
+     📜 .gitignore
+     📜 README.md
+     📜 requirements.txt
+     📜 LICENSE
 
- 📌 Dataset
+ Dataset
 
 The dataset comes from the IEEE-CIS Fraud Detection Challenge on Kaggle.
 
-Download it here: Kaggle IEEE-CIS Fraud Detection
+Download it here: Kaggle IEEE-CIS Fraud Detection https://www.kaggle.com/competitions/ieee-fraud-detection/data
 
 Place the train_transaction.csv file inside the data/ folder.
 
 🔧 Setup Instructions
 
 1. Clone the repository
-git clone https://github.com/yourusername/ieee-fraud-detection-ga-sgd.git
-cd ieee-fraud-detection-ga-sgd
+git clone https://github.com/yourusername/IEEE-CISFraud.git
+cd IEEE-CISFraud
 
 2. Install dependencies
 pip install -r requirements.txt
