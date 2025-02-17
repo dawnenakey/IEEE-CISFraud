@@ -48,4 +48,11 @@ selected_features = [i for i, val in enumerate(best_features) if val == 1]
 with open("data/selected_features.txt", "w") as f:
     f.write("\n".join(map(str, selected_features)))
 
-print(f"✅ Selected Features: {selected_features}")
+# Ensure only feature indices are written to the file
+if selected_features:  # Check if features were selected
+    with open("data/selected_features.txt", "w") as f:
+        for feature in selected_features:
+            f.write(f"{feature}\n")  # Write only the index
+    print("✅ Selected Features saved to data/selected_features.txt")
+else:
+    print("⚠️ No features were selected by the Genetic Algorithm!")
