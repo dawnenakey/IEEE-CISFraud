@@ -1,79 +1,67 @@
-# IEEE-CISFraud
+# 📌 IEEE Fraud Detection using Genetic Algorithm (GA)
 
-📌 IEEE Fraud Detection using Genetic Algorithm (GA) & Stochastic Gradient Descent (SGD)
+## 🚀 Project Overview
+This project applies **Genetic Algorithms (GA)** for feature selection and optimization on the **IEEE-CIS Fraud Detection dataset**. We use GA to identify the most relevant features for fraud detection, improving efficiency and interpretability.
 
-🚀 Project Overview
+## 📂 Repository Structure
+```
+📦 IEEE-CISFraud
+ ┣ 📂 data
+ ┃ ┣ 📜 train_transaction.csv   (Not included, download from Kaggle)
+ ┃ ┣ 📜 train_identity.csv      (Optional, for additional features)
+ ┃ ┣ 📜 processed_data.csv      (Processed dataset for feature selection)
+ ┃ ┗ 📜 selected_features.txt   (Features selected using GA)
+ ┣ 📂 notebooks
+ ┃ ┣ 📜 01_data_preprocessing.ipynb
+ ┃ ┗ 📜 02_feature_selection_ga.ipynb
+ ┣ 📂 src
+ ┃ ┣ 📜 data_preprocessing.py
+ ┃ ┣ 📜 genetic_algorithm_feature_selection.py
+ ┣ 📜 .gitignore
+ ┣ 📜 README.md
+ ┣ 📜 requirements.txt
+ ┗ 📜 LICENSE
+```
 
-This project applies Genetic Algorithms (GA) for feature selection and Stochastic Gradient Descent (SGD) for fraud classification on the IEEE-CIS Fraud Detection dataset.
+## 📌 Dataset
+The dataset comes from the **IEEE-CIS Fraud Detection Challenge** on Kaggle.
+- **Download it here:** [Kaggle IEEE-CIS Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data)
+- Place the **`train_transaction.csv`** file inside the `data/` folder.
 
-📂 Repository Structure
-
-ieee-fraud-detection-ga-sgd
- 📂 data
-     📜 train_transaction.csv   (Not included, download from Kaggle)
-     📜 train_identity.csv      (Optional, for additional features)
-     📜 processed_data.csv      (Processed dataset for feature selection & training)
- 📂 notebooks
-     📜 01_data_preprocessing.ipynb
-     📜 02_feature_selection_ga.ipynb
-     📜 03_fraud_classification_sgd.ipynb
-     📜 04_model_tuning.ipynb
- 📂 src
-     📜 data_preprocessing.py
-     📜 genetic_algorithm_feature_selection.py
-     📜 train_sgd_classifier.py
-     📜 evaluate_model.py
-     📜 hyperparameter_tuning.py
-     📜 .gitignore
-     📜 README.md
-     📜 requirements.txt
-     📜 LICENSE
-
- Dataset
-
-The dataset comes from the IEEE-CIS Fraud Detection Challenge on Kaggle.
-
-Download it here: Kaggle IEEE-CIS Fraud Detection https://www.kaggle.com/competitions/ieee-fraud-detection/data
-
-Place the train_transaction.csv file inside the data/ folder.
-
-🔧 Setup Instructions
-
-1. Clone the repository
+## 🔧 Setup Instructions
+### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/yourusername/IEEE-CISFraud.git
 cd IEEE-CISFraud
+```
 
-2. Install dependencies
+### 2️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
-3. Run Data Preprocessing
+### 3️⃣ Run Data Preprocessing
+```bash
 python src/data_preprocessing.py
+```
 
-4. Run Genetic Algorithm for Feature Selection
+### 4️⃣ Run Genetic Algorithm for Feature Selection
+```bash
 python src/genetic_algorithm_feature_selection.py
+```
 
-5. Train SGD Classifier
-python src/train_sgd_classifier.py
+## 📊 Results & Evaluation
+- **Feature Selection:** GA identifies the most important fraud detection features.
+- **Processed Data:** Stored in `data/processed_data.csv`.
+- **Selected Features:** Saved in `data/selected_features.txt`.
 
-6. Run Hyperparameter Tuning
-python src/hyperparameter_tuning.py
+## 📌 Next Steps
+✅ Experiment with different selection methods in GA (Roulette, Rank, Elitism).
+✅ Compare GA-selected features with full dataset performance.
+✅ Optimize GA parameters (mutation rate, crossover probability).
 
-Results & Evaluation
+## 📜 License
+This project is licensed under the **MIT License**.
 
-Feature Selection: GA selects the best fraud-detection features.
-
-SGD Model Performance: Evaluated with AUC-ROC, confusion matrix.
-
-Hyperparameter Tuning: Optimized loss function, regularization, and learning rate.
-
-📌 Next Steps
-
-✅ Experiment with different selection methods in GA (Roulette, Rank).
-✅ Compare SGD with other models (Random Forest, XGBoost).
-✅ Improve fraud detection in real-time.
-
-📜 License
-
-This project is licensed under the MIT License.
-
-🚀 Contributions welcome! If you have improvements, feel free to submit a pull request.
+---
+🚀 **Contributions welcome!** If you have improvements, feel free to submit a pull request.
