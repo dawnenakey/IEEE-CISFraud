@@ -8,3 +8,7 @@ notebooks/.ipynb_checkpoints/
 # Ignore virtual environment
 venv/
 __pycache__/
+# Ignore large dataset files
+data/processed_data.csv
+data/train_transaction.csv
+data/train_identity.csv
