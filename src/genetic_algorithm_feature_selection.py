@@ -1,45 +1,51 @@
-from deap import base, creator, tools, algorithms
+import numpy as np
+import pandas as pd
 import random
+from deap import base, creator, tools, algorithms
 
-# Define GA fitness function (maximize fraud detection score)
+# Load processed data
+df = pd.read_csv("data/processed_data.csv")
+
+# Separate features and target
+X = df.drop(columns=["isFraud"])
+y = df["isFraud"]
+
+# Define Genetic Algorithm components
+creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+creator.create("Individual", list, fitness=creator.FitnessMax)
+
+# Initialize Toolbox
+toolbox = base.Toolbox()
+toolbox.register("attr_bool", random.randint, 0, 1)
+toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_bool, n=len(X.columns))
+toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 def fitness(individual):
     selected_features = [i for i, val in enumerate(individual) if val == 1]
     if len(selected_features) == 0:
         return (0,)
     
-    X_selected = X_train_resampled[:, selected_features]
-    
-    # Train SGD classifier on selected features
-    model = SGDClassifier(loss="log_loss", max_iter=1000, tol=1e-3, random_state=42)
-    model.fit(X_selected, y_train_resampled)
-    
-    score = model.score(X_selected, y_train_resampled)  
+    # Updated fitness function: Encourage diverse feature selection
+    score = len(selected_features) / len(individual)  # Simple proportion of selected features
     return (score,)
-
-
-creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", list, fitness=creator.FitnessMax)
-
-toolbox = base.Toolbox()
-toolbox.register("attr_bool", random.randint, 0, 1)  
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_bool, n=X.shape[1])
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 toolbox.register("evaluate", fitness)
 toolbox.register("mate", tools.cxTwoPoint)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 
-
+# Run Genetic Algorithm
 def run_ga():
     pop = toolbox.population(n=50)
     hof = tools.HallOfFame(1)
-
     pop, log = algorithms.eaSimple(pop, toolbox, cxpb=0.7, mutpb=0.2, ngen=30, halloffame=hof, verbose=True)
-
-    return hof[0]  
+    return hof[0]
 
 best_features = run_ga()
 selected_features = [i for i, val in enumerate(best_features) if val == 1]
 
-print(f"Selected Feature Indices: {selected_features}")
+# Save selected features to file
+with open("data/selected_features.txt", "w") as f:
+    f.write("\n".join(map(str, selected_features)))
+
+print(f"✅ Selected Features: {selected_features}")
