@@ -2,6 +2,7 @@
 
 ## 🚀 Project Overview
 This project applies **Genetic Algorithms (GA)** for feature selection and optimization on the **IEEE-CIS Fraud Detection dataset**. We use GA to identify the most relevant features for fraud detection, improving efficiency and interpretability.
+Document - https://docs.google.com/document/d/1K3E69GaKV6Heqa25tK27rFNepTufOJQl5uROI_lT2OA/edit?tab=t.g19al5vmlj5k
 
 ## 📂 Repository Structure
 ```
