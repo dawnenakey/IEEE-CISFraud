@@ -38,4 +38,4 @@ print(processed_data.info())
 
 processed_data.to_csv("data/processed_data.csv", index=False)
 
-print("✅ Data Preprocessing Complete. File saved at 'data/processed_data.csv'")
+print("Data Preprocessing Complete. File saved at 'data/processed_data.csv'")
