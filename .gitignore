@@ -10,5 +10,7 @@ venv/
 __pycache__/
 # Ignore large dataset files
 data/processed_data.csv
-data/train_transaction.csv
 data/train_identity.csv
+data/processed_data.csv
+data/processed_data_smote.csv
+data/train_transaction.csv
